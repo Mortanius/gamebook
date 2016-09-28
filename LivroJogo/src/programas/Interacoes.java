@@ -290,7 +290,9 @@ public class Interacoes {
 			loja.getArtigos().listarItens();
 			System.out.println("Qual você dejesa? (Digite o código do Item / 0- Sair da loja)");
 			cod = s.nextInt();
-			if (cod > 0) {
+			if(cod == 0){
+				break;
+			}else if (cod > 0) {
 				i = loja.getArtigos().buscarItem(cod);
 			}
 			System.out.println("Este é o Item que você quer?(1- Sim / 2- Não)\n" + i.getNome() + " - Preço: "

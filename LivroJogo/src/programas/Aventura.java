@@ -48,7 +48,7 @@ public class Aventura {
 		
 		do{
 			System.out.println("Olá! "+ h.getNome()+ " Eu sou o seu assistente de Aventura.\n- Em que posso ajudar?(Ultima posição salva: "+ h.getPosicao()+")");
-			System.out.println("1- Gerar Item?\n2- Listar Itens\n3- Usar Item\n4- Batalhar\n5- Mostrar Personagem\n6- Salvar Jogo\n7- Testar Sorte\n8- Usar Poção/Provisão\n9- Sair");
+			System.out.println("1- Gerar Item?\n2- Listar Itens\n3- Loja Yaztromo\n4- Batalhar\n5- Mostrar Personagem\n6- Salvar Jogo\n7- Testar Sorte\n8- Usar Poção/Provisão\n9- Sair");
 			opcao = s.nextInt();
 			while(opcao<1||opcao>10){
 				System.out.println("Opcão In válida! Digite novamente");
