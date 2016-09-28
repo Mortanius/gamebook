@@ -304,7 +304,7 @@ public class Interacoes {
 			}
 			switch (cod) {
 			case 1:
-				if (condicaoDeCompra((i.getPreco() * i.getQuantidade()), jogador) == true) {
+				if (condicaoDeCompra((i.getPreco() * i.getQuantidade()), jogador)) {
 					jogador.getBolsa().addItem(i);
 					jogador.setOuro(-(i.getPreco() * i.getQuantidade()));
 					loja.getArtigos().removeItem(i.getCodigo());

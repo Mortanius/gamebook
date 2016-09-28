@@ -25,6 +25,7 @@ public class Aventura {
 		i = new Item();
 		
 		loja = mundo.lojaYaztromo();
+		
 		System.out.println("Bem vindo ao sistema Livro-Jogo\n"
 				+ "uma ferramenta que veio auxiliar sua litura!\n");
 		

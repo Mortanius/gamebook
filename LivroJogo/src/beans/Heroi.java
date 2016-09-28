@@ -61,7 +61,7 @@ public class Heroi implements Serializable {
 
 	public void setEnergiaAtual(int energiaAtual) {
 		if (energiaAtual >= 0 && energiaAtual <= this.getEnergiaMax()) {
-			this.energiaAtual += energiaAtual;
+			this.energiaAtual = energiaAtual;
 			if (this.energiaAtual > this.energiaMax) {
 				this.energiaAtual = this.energiaMax;
 			}
@@ -112,7 +112,7 @@ public class Heroi implements Serializable {
 			if (this.sorteAtual > this.sorteMax) {
 				this.sorteAtual = this.sorteMax;
 			}
-		} else if (sorteAtual < 0) {
+		} else if (this.sorteAtual < 0) {
 			this.sorteAtual = 0;
 		}
 	}
@@ -145,7 +145,7 @@ public class Heroi implements Serializable {
 
 	public void modificador(Item item) {
 		this.setAtaqueAtual(this.ataqueAtual + item.getModHab());
-		this.setEnergiaAtual(this.energiaAtual + item.getMobEne());
+		this.setEnergiaAtual(item.getMobEne() + item.getMobEne());
 		this.sorteMax = (this.getSorteMax() + item.getMobSorMax());
 		this.setSorteAtual(this.getSorteAtual() + item.getMobSor());
 		return;

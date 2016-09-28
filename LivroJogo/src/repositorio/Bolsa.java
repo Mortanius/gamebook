@@ -39,12 +39,15 @@ public class Bolsa implements Serializable {
 	}
 
 	public void removeItem(int code) {
+		Item o = new Item();
+		o = null;
 		for (int i = 0; i < itens.length; i++) {
 			if (this.itens[i].getCodigo() == code) {
 				if (this.itens[i].getQuantidade() > 0) {
 					this.itens[i].setQuantidade(this.itens[i].getQuantidade() - 1);
 					if (this.itens[i].getQuantidade() <= 0) {
-						this.itens[i] = null;
+						this.itens[i] = o;
+						return;
 					}
 					return;
 				}
@@ -77,11 +80,11 @@ public class Bolsa implements Serializable {
 		return false;
 	}
 
-	public Item buscarItem(int cod){
+	public Item buscarItem(int cod) {
 		Item i = null;
 		for (Item item : itens) {
-			if(item!=null){
-				if (item.getCodigo()==cod) {
+			if (item != null) {
+				if (item.getCodigo() == cod) {
 					i = item;
 					return i;
 				}
