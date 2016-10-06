@@ -68,7 +68,7 @@ public class Item implements Serializable {
 	}
 
 	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
+		this.quantidade += quantidade;
 	}
 
 	public boolean equals(Item item) {

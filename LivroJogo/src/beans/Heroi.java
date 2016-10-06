@@ -60,12 +60,12 @@ public class Heroi implements Serializable {
 	}
 
 	public void setEnergiaAtual(int energiaAtual) {
-		if (energiaAtual >= 0 && energiaAtual <= this.getEnergiaMax()) {
-			this.energiaAtual = energiaAtual;
-			if (this.energiaAtual > this.energiaMax) {
-				this.energiaAtual = this.energiaMax;
-			}
-		} else if (energiaAtual < 0) {
+
+		this.energiaAtual = this.energiaAtual + energiaAtual;
+
+		if (this.energiaAtual > this.energiaMax) {
+			this.energiaAtual = this.energiaMax;
+		} else if (this.energiaAtual < 0) {
 			this.energiaAtual = 0;
 		}
 
@@ -84,12 +84,11 @@ public class Heroi implements Serializable {
 	}
 
 	public void setAtaqueAtual(int ataqueAtual) {
-		if (ataqueAtual >= 0 && ataqueAtual<this.ataqueMax) {
-			this.ataqueAtual += ataqueAtual;
-		} else if (ataqueAtual < 0) {
+
+		this.ataqueAtual = this.ataqueAtual + ataqueAtual;
+
+		if (this.ataqueAtual < 0) {
 			this.ataqueAtual = 0;
-		}else if(ataqueAtual == this.ataqueMax){
-			this.ataqueAtual = this.ataqueMax;
 		}
 
 	}
@@ -107,12 +106,12 @@ public class Heroi implements Serializable {
 	}
 
 	public void setSorteAtual(int sorteAtual) {
-		if (sorteAtual >= 0) {
-			this.sorteAtual += sorteAtual;
-			if (this.sorteAtual > this.sorteMax) {
-				this.sorteAtual = this.sorteMax;
-			}
-		} else if (this.sorteAtual < 0) {
+		this.sorteAtual = this.sorteAtual + sorteAtual;
+
+		if (this.sorteAtual > this.sorteMax) {
+			this.sorteAtual = this.sorteMax;
+		}
+		if (this.sorteAtual < 0) {
 			this.sorteAtual = 0;
 		}
 	}
@@ -144,10 +143,10 @@ public class Heroi implements Serializable {
 	}
 
 	public void modificador(Item item) {
-		this.setAtaqueAtual(this.ataqueAtual + item.getModHab());
-		this.setEnergiaAtual(item.getMobEne() + item.getMobEne());
-		this.sorteMax = (this.getSorteMax() + item.getMobSorMax());
-		this.setSorteAtual(this.getSorteAtual() + item.getMobSor());
+		this.setAtaqueAtual(item.getModHab());
+		this.setEnergiaAtual(item.getMobEne());
+		this.setSorteMax(this.sorteMax + item.getMobSorMax());
+		this.setSorteAtual(item.getMobSor());
 		return;
 	}
 

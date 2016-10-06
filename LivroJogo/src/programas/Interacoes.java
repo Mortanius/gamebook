@@ -26,11 +26,11 @@ public class Interacoes {
 		int valor = dado.nextInt(12) + 1;
 		if (valor <= jogador.getSorteAtual()) {
 			sorte = true;
-			jogador.setSorteAtual(jogador.getSorteAtual() - 1);
+			jogador.setSorteAtual(-1);
 			System.out.println("Passou! \nSorte Atual: " + jogador.getSorteAtual() + "/" + jogador.getSorteMax());
 			return sorte;
 		} else {
-			jogador.setSorteAtual(jogador.getSorteAtual() - 1);
+			jogador.setSorteAtual(-1);
 			System.out.println("Deu ruim! \nSorte Atual: " + jogador.getSorteAtual() + "/" + jogador.getSorteMax());
 			return sorte;
 		}
@@ -65,16 +65,16 @@ public class Interacoes {
 					if (sorte) {
 						// System.out.println("Ufa, que sorte!");
 						System.out.println(jogador.getNome() + " Perde 1 de vida");
-						jogador.setEnergiaAtual(jogador.getEnergiaAtual() - 1);
+						jogador.setEnergiaAtual(-1);
 					} else {
 						// System.out.println("Ops, má sorte!");
 						System.out.println(jogador.getNome() + " Perde 3 de vida");
-						jogador.setEnergiaAtual(jogador.getEnergiaAtual() - 3);
+						jogador.setEnergiaAtual(-3);
 					}
 					break;
 				default:
 					System.out.println(jogador.getNome() + " Perde 2 de vida");
-					jogador.setEnergiaAtual(jogador.getEnergiaAtual() - 2);
+					jogador.setEnergiaAtual(-2);
 					break;
 				}
 
@@ -157,7 +157,7 @@ public class Interacoes {
 		default:
 			i = new Item("Poção da Fortuna", "Restaura sua sorte e aumenta em +1", 2, 0);
 			i.setMobSorMax(1);
-			i.setMobSor(h.getSorteMax() + 1);
+			i.setMobSor(h.getSorteMax()+1);
 			b.addItem(i);
 			break;
 		}
@@ -223,7 +223,7 @@ public class Interacoes {
 		System.out.println("Digite o código da poção");
 		int cod = s.nextInt();
 		jogador.modificador(jogador.getBolsa().buscarItem(cod));
-		jogador.getBolsa().removeItem(cod);
+		jogador.getBolsa().removeItem(jogador.getBolsa().buscarItem(cod));
 		System.out.println(jogador);
 		return;
 	}
@@ -288,13 +288,16 @@ public class Interacoes {
 			System.out.println("         ITENS A VENDA");
 			System.out.println("------------------------------");
 			loja.getArtigos().listarItens();
+			do{
 			System.out.println("Qual você dejesa? (Digite o código do Item / 0- Sair da loja)");
 			cod = s.nextInt();
-			if(cod == 0){
-				break;
-			}else if (cod > 0) {
+			if (cod == 0) {
+				System.out.println("Obrigado por comprar conosco!");
+				return;
+			} else if (cod > 0) {
 				i = loja.getArtigos().buscarItem(cod);
 			}
+			}while(i == null);
 			System.out.println("Este é o Item que você quer?(1- Sim / 2- Não)\n" + i.getNome() + " - Preço: "
 					+ i.getPreco() + "g");
 			cod = s.nextInt();
@@ -305,9 +308,10 @@ public class Interacoes {
 			switch (cod) {
 			case 1:
 				if (condicaoDeCompra((i.getPreco() * i.getQuantidade()), jogador)) {
+					i.setCodigo(0);
 					jogador.getBolsa().addItem(i);
 					jogador.setOuro(-(i.getPreco() * i.getQuantidade()));
-					loja.getArtigos().removeItem(i.getCodigo());
+					loja.getArtigos().removeItem(i);
 				} else {
 					System.out.println("Saldo insuficiente");
 				}

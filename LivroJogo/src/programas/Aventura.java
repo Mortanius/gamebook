@@ -40,6 +40,7 @@ public class Aventura {
 			case 1:
 				h = new Heroi();
 				h = mundo.criarPersonagem();
+				h.setEnergiaAtual(-5);
 			break;
 			case 2:
 				h = (Heroi) Arquivo.lerArquivo();
