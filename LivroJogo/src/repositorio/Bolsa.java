@@ -34,7 +34,7 @@ public class Bolsa implements Serializable {
 				return;
 			}
 		}
-		
+				
 		if (item != null) {
 			this.itens[p] = item;
 			itens[p].setCodigo(number);
