@@ -154,10 +154,21 @@ public class Heroi extends Personagem implements Serializable {
 	}
 	
 	public void equiparItem(EquipItem equip){
-		if(equip.equipar()){
+		if(!equip.isEquipado()){
+			equip.equipar();
 			this.modificador(equip);
 		}
-		
+		return;
+	}
+	
+	public void desequiparItem(EquipItem equip){
+		if (equip.isEquipado()) {
+			equip.desequipar();
+			this.setAtaqueAtual(-equip.getModHab());
+			this.setEnergiaAtual(-equip.getMobEne());
+			this.setSorteAtual(-equip.getMobSor());
+		}
+		return;
 	}
 
 	@Override

@@ -1,13 +1,17 @@
 package beans;
 
 @SuppressWarnings("serial")
-public class EquipItem extends Item{
+public class EquipItem extends Item {
 
 	boolean equipado;
-	
+
 	public EquipItem(){
-		this.equipado = false;
 		
+	}
+	
+	public EquipItem(String nome, String descriao, int quantidade, int preco) {
+		super(nome, descriao, quantidade, preco);
+		this.equipado = false;
 	}
 
 	public boolean isEquipado() {
@@ -17,14 +21,21 @@ public class EquipItem extends Item{
 	public void setEquipado(boolean equipado) {
 		this.equipado = equipado;
 	}
-	
-	public boolean equipar(){
+
+	public boolean equipar() {
 		this.setEquipado(true);
 		return equipado;
 	}
-	
-	public boolean desequipar(){
+
+	public boolean desequipar() {
 		this.setEquipado(false);
 		return equipado;
 	}
+
+	public String toString() {
+
+		return super.getQuantidade() + "x " + super.getNome() + " - Código: " + super.getCodigo() + "\n" + "-"
+				+ super.getDescriao() + " custo: " + super.getPreco() + "g\n";
+	}
+
 }

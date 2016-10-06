@@ -11,7 +11,7 @@ import repositorio.Bolsa;
 
 public class Interacoes {
 
-	// private Heroi jogador;
+	
 	private Npc npc;
 	private Random dado;
 	private Scanner s;
@@ -157,7 +157,7 @@ public class Interacoes {
 		default:
 			i = new Item("Poção da Fortuna", "Restaura sua sorte e aumenta em +1", 2, 0);
 			i.setMobSorMax(1);
-			i.setMobSor(h.getSorteMax()+1);
+			i.setMobSor(h.getSorteMax() + 1);
 			b.addItem(i);
 			break;
 		}
@@ -186,31 +186,72 @@ public class Interacoes {
 		Item i = new Item();
 		int mod = 0;
 		s = new Scanner(System.in);
-		System.out.println("Qual o nome do Item?");
-		i.setNome(s.nextLine());
-		System.out.println("Escreva uma breve descrição:");
-		i.setDescriao(s.nextLine());
-		System.out.println("Quantos você tem?");
-		i.setQuantidade(s.nextInt());
-		System.out.println("Quanto custou?");
-		i.setPreco(s.nextInt());
-		System.out.println("Esse Item modifica o personagem? (1- Sim / 2- Não)");
+		/*
+		 * System.out.println("Qual o nome do Item?"); i.setNome(s.nextLine());
+		 * System.out.println("Escreva uma breve descrição:");
+		 * i.setDescriao(s.nextLine()); System.out.println("Quantos você tem?");
+		 * i.setQuantidade(s.nextInt()); System.out.println("Quanto custou?");
+		 * i.setPreco(s.nextInt());
+		 */
+		System.out.println("Qual o tipo do item? \n1- Consumivel\n2- Equipamento\n3- Item chave");
 		mod = s.nextInt();
 		if (mod == 1) {
+			System.out.println("Qual o nome do Item?");
+			i.setNome(s.nextLine());
+			System.out.println("Escreva uma breve descrição:");
+			i.setDescriao(s.nextLine());
+			System.out.println("Quantos você tem?");
+			i.setQuantidade(s.nextInt());
+			System.out.println("Quanto custou?");
+			i.setPreco(s.nextInt());
 			System.out.println("Qual Habilidade modifica?\n1- Habilidade\n2- Energia\n3- Sorte");
 			mod = s.nextInt();
 			switch (mod) {
 			case 1:
 				System.out.println("Qual o modificador de Habilidade?");
 				i.setModHab(s.nextInt());
-				break;
+				return i;
 			case 2:
 				System.out.println("Qual o modificador de Energia?");
 				i.setMobEne(s.nextInt());
-				break;
+				return i;
 			case 3:
 				System.out.println("Qual o modificador de Sorte?");
 				i.setMobSor(s.nextInt());
+				return i;
+			default:
+				break;
+			}
+		} else if (mod == 2) {
+			EquipItem equip = new EquipItem();
+			System.out.println("Qual o nome do Item?");
+			equip.setNome(s.nextLine());
+			s.nextLine();
+			System.out.println("Escreva uma breve descrição:");
+			equip.setDescriao(s.nextLine());
+			s.nextLine();
+			System.out.println("Quantos você tem?");
+			int cust = s.nextInt();
+			equip.setQuantidade(cust);
+			System.out.println("Quanto custou?");
+			cust = s.nextInt();
+			equip.setPreco(cust);
+			System.out.println("Qual Habilidade modifica?\n1- Habilidade\n2- Energia\n3- Sorte");
+			mod = s.nextInt();
+			switch (mod) {
+			case 1:
+				System.out.println("Qual o modificador de Habilidade?");
+				equip.setModHab(s.nextInt());
+				i = equip;
+				return i;
+			case 2:
+				System.out.println("Qual o modificador de Energia?");
+				equip.setMobEne(s.nextInt());
+				return equip;
+			case 3:
+				System.out.println("Qual o modificador de Sorte?");
+				equip.setMobSor(s.nextInt());
+				return equip;
 			default:
 				break;
 			}
@@ -228,13 +269,13 @@ public class Interacoes {
 		return;
 	}
 
-	public void equipamento(Heroi heroi){
+	public void equipamento(Heroi heroi) {
 		heroi.getBolsa().listarItens();
 		System.out.println("Digite o código do equipamento!");
 		int cod = s.nextInt();
-		heroi.equiparItem((EquipItem)heroi.getBolsa().buscarItem(cod));
+		heroi.equiparItem((EquipItem) heroi.getBolsa().buscarItem(cod));
 	}
-	
+
 	public Loja lojaYaztromo() {
 		Bolsa artigos = new Bolsa();
 		Item i = new Item("Poçao de Cura", "Sem descrição", 1, 3);
@@ -295,16 +336,16 @@ public class Interacoes {
 			System.out.println("         ITENS A VENDA");
 			System.out.println("------------------------------");
 			loja.getArtigos().listarItens();
-			do{
-			System.out.println("Qual você dejesa? (Digite o código do Item / 0- Sair da loja)");
-			cod = s.nextInt();
-			if (cod == 0) {
-				System.out.println("Obrigado por comprar conosco!");
-				return;
-			} else if (cod > 0) {
-				i = loja.getArtigos().buscarItem(cod);
-			}
-			}while(i == null);
+			do {
+				System.out.println("Qual você dejesa? (Digite o código do Item / 0- Sair da loja)");
+				cod = s.nextInt();
+				if (cod == 0) {
+					System.out.println("Obrigado por comprar conosco!");
+					return;
+				} else if (cod > 0) {
+					i = loja.getArtigos().buscarItem(cod);
+				}
+			} while (i == null);
 			System.out.println("Este é o Item que você quer?(1- Sim / 2- Não)\n" + i.getNome() + " - Preço: "
 					+ i.getPreco() + "g");
 			cod = s.nextInt();

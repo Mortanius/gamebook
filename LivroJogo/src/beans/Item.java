@@ -19,7 +19,6 @@ public class Item implements Serializable {
 	}
 
 	public Item(String nome, String descriao, int quantidade, int preco) {
-		super();
 		this.nome = nome;
 		this.descriao = descriao;
 		this.quantidade = quantidade;
@@ -28,7 +27,6 @@ public class Item implements Serializable {
 		this.mobEne = 0;
 		this.mobSor = 0;
 		this.mobSorMax = 0;
-
 	}
 
 	public int getMobEne() {

@@ -53,7 +53,7 @@ public class Aventura {
 			System.out.println("1- Gerar Item?\n2- Listar Itens\n3- Loja Yaztromo\n4- Batalhar\n5- Mostrar Personagem\n6- Salvar Jogo\n7- Testar Sorte\n8- Usar Poção/Provisão\n9- Equipamentos"
 					+ "\n10- Usar Ouro\n11- Sair");
 			opcao = s.nextInt();
-			while(opcao<1||opcao>10){
+			while(opcao<1||opcao>11){
 				System.out.println("Opcão In válida! Digite novamente");
 				opcao = s.nextInt();
 			}
@@ -91,6 +91,7 @@ public class Aventura {
 				break;
 			case 9:
 				mundo.equipamento(h);
+				break;
 			case 10:
 				System.out.println("O quanto de ouro você recebeu/doou?");
 				h.setOuro(s.nextInt());
