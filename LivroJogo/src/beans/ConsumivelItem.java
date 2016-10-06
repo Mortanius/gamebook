@@ -1,6 +1,9 @@
 package beans;
 
-public class ConsumivelItem extends Item {
+import java.io.Serializable;
+
+@SuppressWarnings("serial")
+public class ConsumivelItem extends Item implements Serializable{
 	
 	int duracao;
 	

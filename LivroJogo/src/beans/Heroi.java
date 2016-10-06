@@ -152,6 +152,13 @@ public class Heroi extends Personagem implements Serializable {
 		this.setSorteAtual(item.getMobSor());
 		return;
 	}
+	
+	public void equiparItem(EquipItem equip){
+		if(equip.equipar()){
+			this.modificador(equip);
+		}
+		
+	}
 
 	@Override
 	public String toString() {

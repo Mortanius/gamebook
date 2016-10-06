@@ -50,7 +50,8 @@ public class Aventura {
 		
 		do{
 			System.out.println("Olá! "+ h.getNome()+ " Eu sou o seu assistente de Aventura.\n- Em que posso ajudar?(Ultima posição salva: "+ h.getPosicao()+")");
-			System.out.println("1- Gerar Item?\n2- Listar Itens\n3- Loja Yaztromo\n4- Batalhar\n5- Mostrar Personagem\n6- Salvar Jogo\n7- Testar Sorte\n8- Usar Poção/Provisão\n9- Usar Ouro\n10- Sair");
+			System.out.println("1- Gerar Item?\n2- Listar Itens\n3- Loja Yaztromo\n4- Batalhar\n5- Mostrar Personagem\n6- Salvar Jogo\n7- Testar Sorte\n8- Usar Poção/Provisão\n9- Equipamentos"
+					+ "\n10- Usar Ouro\n11- Sair");
 			opcao = s.nextInt();
 			while(opcao<1||opcao>10){
 				System.out.println("Opcão In válida! Digite novamente");
@@ -89,10 +90,12 @@ public class Aventura {
 				mundo.UsarPocao(h);
 				break;
 			case 9:
+				mundo.equipamento(h);
+			case 10:
 				System.out.println("O quanto de ouro você recebeu/doou?");
 				h.setOuro(s.nextInt());
 				break;
-			case 10:
+			case 11:
 				System.out.println("Deseja salvar antes de ir?(1- Sim / 2- Não)");
 				if (s.nextInt()==1) {
 					System.out.println("Digite a posição atual:");

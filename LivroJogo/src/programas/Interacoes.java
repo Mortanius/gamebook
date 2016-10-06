@@ -2,6 +2,7 @@ package programas;
 
 import java.util.*;
 
+import beans.EquipItem;
 import beans.Heroi;
 import beans.Item;
 import beans.Loja;
@@ -121,7 +122,6 @@ public class Interacoes {
 
 		System.out.println("Qual o nome do heroi?");
 		Heroi h = new Heroi(s.nextLine(), dado.nextInt(12) + 13, dado.nextInt(6) + 7, dado.nextInt(6) + 7, b);
-		// System.out.println(h);
 		Item i = new Item("Espada", "Espada sem nada demais", 1, 0);
 		b.addItem(i);
 		i = new Item("Armadura de Couro", "Armadura simples", 1, 0);
@@ -228,6 +228,13 @@ public class Interacoes {
 		return;
 	}
 
+	public void equipamento(Heroi heroi){
+		heroi.getBolsa().listarItens();
+		System.out.println("Digite o código do equipamento!");
+		int cod = s.nextInt();
+		heroi.equiparItem((EquipItem)heroi.getBolsa().buscarItem(cod));
+	}
+	
 	public Loja lojaYaztromo() {
 		Bolsa artigos = new Bolsa();
 		Item i = new Item("Poçao de Cura", "Sem descrição", 1, 3);
