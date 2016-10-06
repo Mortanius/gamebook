@@ -24,15 +24,14 @@ public class Arquivo {
 		}
 	}
 	
-	public static Object lerArquivo(){
+	public static Heroi lerArquivo(){
 		
 		String caminho = "C:\\Users\\" + System.getProperty("user.name").toString() + "\\Desktop\\" + "LivroJogo"+".dat";
-		
+		Heroi jogador = new Heroi();
 		try {
 			FileInputStream arquivoLeitura = new FileInputStream(caminho);
 			ObjectInputStream objLeitura = new ObjectInputStream(arquivoLeitura);
-			Object jogador = new Heroi();
-			jogador = objLeitura.readObject();
+			jogador = (Heroi) objLeitura.readObject();
 			objLeitura.close();
 			arquivoLeitura.close();
 			return jogador;
@@ -41,7 +40,8 @@ public class Arquivo {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return caminho;
+		
+		return jogador;
 		
 	}
 	

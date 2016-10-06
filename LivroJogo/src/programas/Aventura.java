@@ -1,6 +1,7 @@
 package programas;
 import java.util.*;
 
+
 import beans.Heroi;
 import beans.Item;
 import beans.Loja;
@@ -27,7 +28,7 @@ public class Aventura {
 		loja = mundo.lojaYaztromo();
 		
 		System.out.println("Bem vindo ao sistema Livro-Jogo\n"
-				+ "uma ferramenta que veio auxiliar sua litura!\n");
+				+ "uma ferramenta que veio auxiliar sua leitura!\n");
 		
 		System.out.println("Escolha sua opção:\n1- Novo Jogo\n2- Continuar");
 		opcao = s.nextInt();
@@ -40,17 +41,16 @@ public class Aventura {
 			case 1:
 				h = new Heroi();
 				h = mundo.criarPersonagem();
-				h.setEnergiaAtual(-5);
-			break;
+				break;
 			case 2:
-				h = (Heroi) Arquivo.lerArquivo();
+				h = Arquivo.lerArquivo();
 			break;
 			}
 		//}while(opcao = =2);
 		
 		do{
 			System.out.println("Olá! "+ h.getNome()+ " Eu sou o seu assistente de Aventura.\n- Em que posso ajudar?(Ultima posição salva: "+ h.getPosicao()+")");
-			System.out.println("1- Gerar Item?\n2- Listar Itens\n3- Loja Yaztromo\n4- Batalhar\n5- Mostrar Personagem\n6- Salvar Jogo\n7- Testar Sorte\n8- Usar Poção/Provisão\n9- Sair");
+			System.out.println("1- Gerar Item?\n2- Listar Itens\n3- Loja Yaztromo\n4- Batalhar\n5- Mostrar Personagem\n6- Salvar Jogo\n7- Testar Sorte\n8- Usar Poção/Provisão\n9- Usar Ouro\n10- Sair");
 			opcao = s.nextInt();
 			while(opcao<1||opcao>10){
 				System.out.println("Opcão In válida! Digite novamente");
@@ -64,10 +64,10 @@ public class Aventura {
 				h.getBolsa().addItem(i);
 				break;
 			case 2:
+				System.out.println("--------------- ITENS -------------------");
 				h.getBolsa().listarItens();
 				break;
 			case 3:
-				//Criar Função Equipar Item.
 				mundo.comprar(h, loja);
 				break;
 			case 4:
@@ -89,11 +89,17 @@ public class Aventura {
 				mundo.UsarPocao(h);
 				break;
 			case 9:
+				System.out.println("O quanto de ouro você recebeu/doou?");
+				h.setOuro(s.nextInt());
+				break;
+			case 10:
 				System.out.println("Deseja salvar antes de ir?(1- Sim / 2- Não)");
 				if (s.nextInt()==1) {
 					System.out.println("Digite a posição atual:");
 					h.setPosicao(s.nextInt());
 					Arquivo.salvaArquivo(h);
+					System.out.println("Obrigado por usar o programa!");
+					System.exit(0);
 				} else {
 					System.out.println("Obrigado por usar o programa!");
 					System.exit(0);

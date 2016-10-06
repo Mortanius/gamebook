@@ -1,22 +1,20 @@
 package beans;
 
-@SuppressWarnings("serial")
-public class Npc extends Personagem{
+import java.io.Serializable;
 
-	public Npc(){
+@SuppressWarnings("serial")
+abstract class Personagem implements Serializable{
+
+	protected String nome;
+	protected int energiaMax;
+	protected int energiaAtual;
+	protected int ataqueMax;
+	protected int ataqueAtual;
+	
+	public Personagem(){
 
 	}
 	
-	public Npc(String nome, int energiaMax, int ataqueMax) {
-		super();
-		this.nome = nome;
-		this.energiaMax = energiaMax;
-		this.energiaAtual = energiaMax;
-		this.ataqueMax = ataqueMax;
-		this.ataqueAtual = ataqueMax;
-	}
-
-
 	public String getNome() {
 		return nome;
 	}
@@ -66,10 +64,4 @@ public class Npc extends Personagem{
 		}
 		
 	}
-	
-	public String toString() {
-		return  nome + "\nEnergia " + energiaAtual + "/" + energiaMax +  "\nAtaque "
-				+ ataqueMax;
-	}
-	
 }

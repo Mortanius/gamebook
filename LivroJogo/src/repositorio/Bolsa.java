@@ -40,7 +40,7 @@ public class Bolsa implements Serializable {
 			itens[p].setCodigo(number);
 			number++;
 			p++;
-			System.out.println("Item guardado!!");
+			//System.out.println("Item guardado!!");
 			return;
 		}
 		return;
@@ -86,7 +86,6 @@ public class Bolsa implements Serializable {
 	}
 
 	public void listarItens() {
-		System.out.println("---------ITENS-----------");
 		for (int i = 0; i < itens.length; i++) {
 			if (this.itens[i] != null) {
 				System.out.println(this.itens[i]);

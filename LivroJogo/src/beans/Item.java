@@ -71,21 +71,6 @@ public class Item implements Serializable {
 		this.quantidade += quantidade;
 	}
 
-	public boolean equals(Item item) {
-		boolean result = false;
-		if (this.codigo == item.getCodigo()) {
-			result = true;
-			return result;
-		} else {
-			return result;
-		}
-	}
-
-	@Override
-	public String toString() {
-		return quantidade + "x " + nome + " - Código: " + codigo + "\n" + "-" + descriao + " custo: " + preco + "g\n";
-	}
-
 	public int getPreco() {
 		return preco;
 	}
@@ -116,6 +101,21 @@ public class Item implements Serializable {
 
 	public void setMobSorMax(int mobSorMax) {
 		this.mobSorMax = mobSorMax;
+	}
+	
+	public boolean equals(Item item) {
+		boolean result = false;
+		if (this.codigo == item.getCodigo()) {
+			result = true;
+			return result;
+		} else {
+			return result;
+		}
+	}
+
+	@Override
+	public String toString() {
+		return quantidade + "x " + nome + " - Código: " + codigo + "\n" + "-" + descriao + " custo: " + preco + "g\n";
 	}
 
 }

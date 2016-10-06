@@ -5,13 +5,8 @@ import java.io.*;
 import repositorio.Bolsa;
 
 @SuppressWarnings("serial")
-public class Heroi implements Serializable {
+public class Heroi extends Personagem implements Serializable {
 
-	private String nome;
-	private int energiaMax;
-	private int energiaAtual;
-	private int ataqueMax;
-	private int ataqueAtual;
 	private int sorteMax;
 	private int sorteAtual;
 	private Bolsa bolsa;
@@ -129,7 +124,15 @@ public class Heroi implements Serializable {
 	}
 
 	public void setOuro(int ouro) {
+
+		if (ouro < 0 && Math.abs(ouro) > this.ouro) {
+			System.out.println("Saldo insuficiene");
+			return;
+		}
 		this.ouro += ouro;
+		if (this.ouro <= 0) {
+			this.ouro = 0;
+		}
 	}
 
 	public String incremento() {
