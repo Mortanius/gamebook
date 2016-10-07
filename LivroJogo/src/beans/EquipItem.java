@@ -6,7 +6,7 @@ public class EquipItem extends Item {
 	boolean equipado;
 
 	public EquipItem(){
-		
+		super();
 	}
 	
 	public EquipItem(String nome, String descriao, int quantidade, int preco) {
@@ -31,7 +31,7 @@ public class EquipItem extends Item {
 		this.setEquipado(false);
 		return equipado;
 	}
-
+@Override
 	public String toString() {
 
 		return super.getQuantidade() + "x " + super.getNome() + " - Código: " + super.getCodigo() + "\n" + "-"

@@ -225,8 +225,8 @@ public class Interacoes {
 		} else if (mod == 2) {
 			EquipItem equip = new EquipItem();
 			System.out.println("Qual o nome do Item?");
-			equip.setNome(s.nextLine());
 			s.nextLine();
+			equip.setNome(s.nextLine());
 			System.out.println("Escreva uma breve descrição:");
 			equip.setDescriao(s.nextLine());
 			s.nextLine();
@@ -247,11 +247,13 @@ public class Interacoes {
 			case 2:
 				System.out.println("Qual o modificador de Energia?");
 				equip.setMobEne(s.nextInt());
-				return equip;
+				i = equip;
+				return i;
 			case 3:
 				System.out.println("Qual o modificador de Sorte?");
 				equip.setMobSor(s.nextInt());
-				return equip;
+				i = equip;
+				return i;
 			default:
 				break;
 			}
