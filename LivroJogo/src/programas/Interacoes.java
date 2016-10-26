@@ -38,7 +38,7 @@ public class Interacoes {
 
 	public void mostrarVidaEHab(Heroi jogador, Npc npc) {
 		System.out.println(jogador.getNome() + "\nEnergia: " + jogador.getEnergiaAtual() + "/" + jogador.getEnergiaMax()
-				+ " Força:" + jogador.getAtaqueAtual() + jogador.incremento() + "\n");
+				+ " Força:" + jogador.getAtaqueMax() + jogador.incremento() + "\n");
 		System.out.println(npc.getNome() + "\nEnergia: " + npc.getEnergiaAtual() + "/" + npc.getEnergiaMax()
 				+ " Força: " + npc.getAtaqueAtual() + "\n");
 	}

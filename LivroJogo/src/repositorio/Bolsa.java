@@ -115,9 +115,9 @@ public class Bolsa implements Serializable {
 				if (item.getCodigo() == cod) {
 					i = item;
 					return i;
-				}else{
-					throw new Exception("Codigo Inválido");
 				}
+			}else{
+				throw new Exception("Codigo Inválido");
 			}
 		}
 		
