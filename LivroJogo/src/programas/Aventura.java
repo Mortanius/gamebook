@@ -69,7 +69,11 @@ public class Aventura {
 				h.getBolsa().listarItens();
 				break;
 			case 3:
+				try{
 				mundo.comprar(h, loja);
+				}catch(Exception msg){
+					System.out.println(msg);
+				}
 				break;
 			case 4:
 				mundo.batalha(h);
@@ -86,11 +90,19 @@ public class Aventura {
 				mundo.usarSorte(h);
 				break;
 			case 8:
+				try{
 				h.getBolsa().listarItens();
 				mundo.UsarPocao(h);
+				}catch(Exception msg){
+					System.out.println(msg);
+				}
 				break;
 			case 9:
+				try{
 				mundo.equipamento(h);
+				}catch(Exception msg){
+					System.out.println(msg);
+				}
 				break;
 			case 10:
 				System.out.println("O quanto de ouro você recebeu/doou?");

@@ -108,17 +108,20 @@ public class Bolsa implements Serializable {
 		return false;
 	}
 
-	public Item buscarItem(int cod) {
+	public Item buscarItem(int cod) throws Exception{
 		Item i = null;
 		for (Item item : itens) {
 			if (item != null) {
 				if (item.getCodigo() == cod) {
 					i = item;
 					return i;
+				}else{
+					throw new Exception("Codigo Inválido");
 				}
 			}
 		}
-		System.out.println("Item não encontrado!");
+		
+		//System.out.println("Item não encontrado!");
 		return i;
 	}
 

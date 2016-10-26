@@ -11,7 +11,6 @@ import repositorio.Bolsa;
 
 public class Interacoes {
 
-	
 	private Npc npc;
 	private Random dado;
 	private Scanner s;
@@ -262,7 +261,7 @@ public class Interacoes {
 		return i;
 	}
 
-	public void UsarPocao(Heroi jogador) {
+	public void UsarPocao(Heroi jogador) throws Exception{
 		System.out.println("Digite o código da poção");
 		int cod = s.nextInt();
 		jogador.modificador(jogador.getBolsa().buscarItem(cod));
@@ -271,7 +270,7 @@ public class Interacoes {
 		return;
 	}
 
-	public void equipamento(Heroi heroi) {
+	public void equipamento(Heroi heroi)  throws Exception{
 		heroi.getBolsa().listarItens();
 		System.out.println("Digite o código do equipamento!");
 		int cod = s.nextInt();
@@ -328,7 +327,7 @@ public class Interacoes {
 		return false;
 	}
 
-	public void comprar(Heroi jogador, Loja loja) {
+	public void comprar(Heroi jogador, Loja loja)  throws Exception{
 		s = new Scanner(System.in);
 		int cod;
 		Item i = new Item();
