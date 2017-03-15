@@ -7,6 +7,7 @@ public class EquipItem extends Item {
 
 	public EquipItem(){
 		super();
+		this.equipado = false;
 	}
 	
 	public EquipItem(String nome, String descriao, int quantidade, int preco) {
@@ -34,7 +35,7 @@ public class EquipItem extends Item {
 @Override
 	public String toString() {
 
-		return super.getQuantidade() + "x " + super.getNome() + " - Código: " + super.getCodigo() + "\n" + "-"
+		return super.getQuantidade() + "x " + super.getNome() + " - Cï¿½digo: " + "\n" + "-"
 				+ super.getDescriao() + " custo: " + super.getPreco() + "g\n";
 	}
 

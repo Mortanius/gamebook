@@ -2,7 +2,7 @@ package beans;
 
 import java.io.*;
 
-import repositorio.Bolsa;
+import programa.dados.Bolsa;
 
 @SuppressWarnings("serial")
 public class Heroi extends Personagem implements Serializable {
@@ -11,7 +11,7 @@ public class Heroi extends Personagem implements Serializable {
 	private int sorteAtual;
 	private Bolsa bolsa;
 	private int ouro;
-	private int posicao;
+//	private int posicao;
 
 	public Heroi() {
 		this.ouro = 30;
@@ -31,7 +31,7 @@ public class Heroi extends Personagem implements Serializable {
 		this.sorteAtual = sorteMax;
 		this.setBolsa(bolsa);
 		this.ouro = 30;
-		this.posicao = 1;
+//		this.posicao = 1;
 	}
 
 	public String getNome() {
@@ -173,16 +173,16 @@ public class Heroi extends Personagem implements Serializable {
 
 	@Override
 	public String toString() {
-		return nome + "\nEnergia " + energiaAtual + "/" + energiaMax + "\nAtaque " + ataqueMax + incremento()
-				+ "\nSorte " + sorteAtual + "/" + sorteMax + "\nOuro " + ouro + "g\n";
+		return "Nome personagem:\t"+ nome+ "\nEnergia:\t" + energiaAtual + "/" + energiaMax + "\nAtaque:\t" + ataqueMax + incremento()
+				+ "\nSorte:\t" + sorteAtual + "/" + sorteMax + "\nOuro:\t" + ouro + "g\n";
 	}
 
-	public int getPosicao() {
-		return posicao;
-	}
+//	public int getPosicao() {
+//		return posicao;
+//	}
 
-	public void setPosicao(int posicao) {
-		this.posicao = posicao;
-	}
+//	public void setPosicao(int posicao) {
+//		this.posicao = posicao;
+//	}
 
 }
