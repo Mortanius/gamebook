@@ -2,13 +2,12 @@ package beans;
 import java.io.*;
 
 @SuppressWarnings("serial")
-public class Item implements Serializable {
+public class Item implements Serializable, Comparable<Item> {
 
 	private String nome;
 	private String descriao;
 	private int quantidade;
 	private int preco;
-	private int codigo;
 	private int modHab;
 	private int mobEne;
 	private int mobSor;
@@ -77,13 +76,6 @@ public class Item implements Serializable {
 		this.preco = preco;
 	}
 
-	public int getCodigo() {
-		return codigo;
-	}
-
-	public void setCodigo(int codigo) {
-		this.codigo = codigo;
-	}
 
 	public int getModHab() {
 		return modHab;
@@ -102,18 +94,20 @@ public class Item implements Serializable {
 	}
 	
 	public boolean equals(Item item) {
-		boolean result = false;
-		if (this.codigo == item.getCodigo()) {
-			result = true;
-			return result;
-		} else {
-			return result;
-		}
+		return this.nome.equals(item.getNome());
 	}
 
 	@Override
 	public String toString() {
-		return quantidade + "x " + nome + " - Código: " + codigo + "\n" + "-" + descriao + " custo: " + preco + "g\n";
+		return quantidade + "x " + nome+ "\n-"+ descriao + " custo: " + preco + "g\n";
+	}
+	
+	public String toString (int index) {
+		return "codigo: "+ index+" "+ this.toString();
+	}
+	
+	public int compareTo (Item outro) {
+		return this.nome.compareTo(outro.getNome());
 	}
 
 }

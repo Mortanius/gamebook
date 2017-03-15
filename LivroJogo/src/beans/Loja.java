@@ -1,6 +1,6 @@
 package beans;
 
-import repositorio.Bolsa;
+import programa.dados.Bolsa;
 
 public class Loja {
 
